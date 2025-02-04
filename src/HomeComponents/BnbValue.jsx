@@ -15,7 +15,7 @@ const BnbValue = () => {
     const getBnbValue = async () => {
         try {
             const response = await axios.get(api_link);
-            setBnbValue(response.data.value);
+            setBnbValue(response.data.value.toFixed(2));
             setLoadingBnbValue(false);
         } catch (error) {
             console.error(error);
@@ -45,12 +45,12 @@ const BnbValue = () => {
                 style={{ background: `rgba(240, 185, 11, ${seconds / 10})`, padding: "10px", borderRadius: "10px" }}
             >
                 {bnbValue && !loadingBnbValue ? (
-                    <a>BNB Value: {bnbValue}</a>
+                    <span>BNB Value: ${bnbValue}</span>
                 ) : (
-                    <a>
+                    <span>
                         Loading BNB Value...
                         <i className="fa fa-spinner fa-spin" style={{ fontSize: "24px", marginLeft: "10px" }}></i>
-                    </a>
+                    </span>
                 )}
             </p>
         </Flex>
