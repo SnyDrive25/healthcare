@@ -16,7 +16,6 @@ router.get('/get_value', async (req, res) => {
                 'X-CMC_PRO_API_KEY': COINMARKETCAP_API_KEY
             }
         });
-
         const bnbValue = response.data.data.BNB.quote.USD.price;
         console.log(bnbValue);
         res.json({ value: bnbValue });

